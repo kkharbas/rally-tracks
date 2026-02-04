@@ -75,6 +75,22 @@
 "num-candidates": 200
 },
 {
+"name": "knn-dsl",
+"operation-type": "search",
+"param-source": "hybrid-knn-only-param-source",
+"size": 100,
+"k": 100,
+"num-candidates": 200
+},
+{
+"name": "knn-esql",
+"operation-type": "esql",
+"param-source": "esql-hybrid-knn-only-param-source",
+"size": 100,
+"k": 100,
+"num-candidates": 200
+},
+{
 "name": "esql-profile-hybrid-search-bm25-knn",
 "operation-type": "esql-profile",
 "param-source": "esql-hybrid-bm25-knn-param-source",

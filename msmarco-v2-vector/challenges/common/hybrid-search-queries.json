@@ -49,6 +49,18 @@
 },
 {%- endif -%}{# serverless-post-ingest-sleep-marker-end #}
 {
+"name": "knn-dsl",
+"operation": "knn-dsl",
+"warmup-iterations": 1000,
+"iterations": {{ standalone_search_iterations | default(10000) | int }}
+},
+{
+"name": "knn-esql",
+"operation": "knn-esql",
+"warmup-iterations": 1000,
+"iterations": {{ standalone_search_iterations | default(10000) | int }}
+},
+{
   "name": "hybrid-search-single-client",
   "operation": "hybrid-search-bm25-knn",
   "warmup-iterations": 1000,
@@ -59,20 +71,6 @@
 "operation": "esql-hybrid-search-bm25-knn",
 "warmup-iterations": 1000,
 "iterations": {{ standalone_search_iterations | default(10000) | int }}
-},
-{
-  "name": "hybrid-search-multiple-clients",
-  "operation": "hybrid-search-bm25-knn",
-  "warmup-iterations": 1000,
-  "iterations": {{ standalone_search_iterations | default(10000) | int }},
-  "clients": {{ standalone_search_clients | default(8) | int }}
-},
-{
-"name": "esql-hybrid-search-multiple-clients",
-"operation": "esql-hybrid-search-bm25-knn",
-"warmup-iterations": 1000,
-"iterations": {{ standalone_search_iterations | default(10000) | int }},
-"clients": {{ standalone_search_clients | default(8) | int }}
 }
 {% if is_esql_profiling_enabled %},
 {
@@ -80,12 +78,5 @@
 "operation": "esql-profile-hybrid-search-bm25-knn",
 "warmup-iterations": 1000,
 "iterations": {{ standalone_search_iterations | default(10000) | int }}
-},
-{
-"name": "esql-profile-hybrid-search-bm25-knn-multiple-clients",
-"operation": "esql-profile-hybrid-search-bm25-knn",
-"warmup-iterations": 1000,
-"iterations": {{ standalone_search_iterations | default(10000) | int }},
-"clients": {{ standalone_search_clients | default(8) | int }}
 }
 {% endif %}
