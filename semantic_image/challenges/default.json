@@ -1,0 +1,87 @@
+{%- set p_indexing_time = indexing_time_period | default(120) | int -%}
+{%- set p_search_time = search_time_period | default(120) | int -%}
+{%- set p_index_settings = index_settings | default({}) -%}
+{
+  "name": "semantic-image-stress-test",
+  "description": "Stress tests semantic field indexing and search with images. Indexing clients ramp from 1→2→4→8, then search clients ramp from 1→2→4→8.",
+  "default": true,
+  "schedule": [
+    {
+      "operation": {
+        "operation-type": "delete-index"
+      }
+    },
+    {
+      "operation": {
+        "operation-type": "create-index",
+        "settings": {{ p_index_settings | tojson }}
+      }
+    },
+    {
+      "operation": {
+        "operation-type": "cluster-health",
+        "request-params": {
+          "wait_for_status": "green"
+        },
+        "retry-until-success": true
+      }
+    },
+
+    {
+      "name": "index-1-client",
+      "operation": "bulk-index-images",
+      "clients": 1,
+      "time-period": {{ p_indexing_time }}
+    },
+    {
+      "name": "index-2-clients",
+      "operation": "bulk-index-images",
+      "clients": 2,
+      "time-period": {{ p_indexing_time }}
+    },
+    {
+      "name": "index-4-clients",
+      "operation": "bulk-index-images",
+      "clients": 4,
+      "time-period": {{ p_indexing_time }}
+    },
+    {
+      "name": "index-8-clients",
+      "operation": "bulk-index-images",
+      "clients": 8,
+      "time-period": {{ p_indexing_time }}
+    },
+
+    {
+      "operation": {
+        "operation-type": "refresh",
+        "include-in-reporting": false
+      }
+    },
+
+    {
+      "name": "search-1-client",
+      "operation": "semantic-image-search",
+      "clients": 1,
+      "time-period": {{ p_search_time }}
+    },
+    {
+      "name": "search-2-clients",
+      "operation": "semantic-image-search",
+      "clients": 2,
+      "time-period": {{ p_search_time }}
+    },
+    {
+      "name": "search-4-clients",
+      "operation": "semantic-image-search",
+      "clients": 4,
+      "time-period": {{ p_search_time }}
+    },
+    {
+      "name": "search-8-clients",
+      "operation": "semantic-image-search",
+      "clients": 8,
+      "time-period": {{ p_search_time }}
+    }
+  ]
+}

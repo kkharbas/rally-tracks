@@ -1,0 +1,31 @@
+{% import "rally.helpers" as rally with context %}
+{
+  "version": 2,
+  "description": "Stress test for Elasticsearch semantic field type with image documents, gradually scaling indexing and search throughput from 1 to 8 clients",
+  "indices": [
+    {
+      "name": "{{ index_name | default('semantic-image-test') }}",
+      "body": "index.json"
+    }
+  ],
+  "corpora": [
+    {
+      "name": "semantic_field_images",
+      "base-url": "https://rally-tracks.elastic.co/semantic_field_images",
+      "documents": [
+          {
+            "source-file": "div2k_train_hr-documents.json.bz2",
+            "document-count": 800,
+            "compressed-bytes": 3147286221,
+            "uncompressed-bytes": 4179007224
+          }
+      ]
+    }
+  ],
+  "operations": [
+    {{ rally.collect(parts="operations/*.json") }}
+  ],
+  "challenges": [
+    {{ rally.collect(parts="challenges/*.json") }}
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "bulk-index-images",
+  "operation-type": "bulk-index-images",
+  "param-source": "image-bulk-param-source",
+  "bulk-size": {{ bulk_size | default(1) }},
+  "index": "{{ index_name | default('semantic-image-test') }}"
+},
+{
+  "name": "semantic-image-search",
+  "operation-type": "semantic-image-search",
+  "param-source": "semantic-search-param-source",
+  "index": "{{ index_name | default('semantic-image-test') }}",
+  "size": {{ search_size | default(10) }}
+}

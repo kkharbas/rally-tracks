@@ -1,0 +1,14 @@
+{
+  "mappings": {
+    "dynamic": "strict",
+    "properties": {
+      "name": {
+        "type": "keyword"
+      },
+      "image": {
+        "type": "semantic",
+        "inference_id": ".jina-embeddings-v5-omni-small"
+      }
+    }
+  }
+}
