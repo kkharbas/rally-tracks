@@ -1,9 +1,8 @@
-{%- set p_indexing_time = indexing_time_period | default(120) | int -%}
 {%- set p_search_time = search_time_period | default(120) | int -%}
 {%- set p_index_settings = index_settings | default({}) -%}
 {
   "name": "semantic-image-stress-test",
-  "description": "Stress tests semantic field indexing and search with images. Indexing clients ramp from 1→2→4→8, then search clients ramp from 1→2→4→8.",
+  "description": "Indexes the full DIV2K image corpus once, then stress tests semantic search scaling from 1 to 8 clients.",
   "default": true,
   "schedule": [
     {
@@ -28,30 +27,40 @@
     },
 
     {
-      "name": "index-1-client",
+      "name": "index-images",
       "operation": "bulk-index-images",
-      "clients": 1,
-      "time-period": {{ p_indexing_time }}
+      "clients": 1
     },
     {
-      "name": "index-2-clients",
+      "name": "index-images-2",
       "operation": "bulk-index-images",
-      "clients": 2,
-      "time-period": {{ p_indexing_time }}
+      "clients": 2
     },
     {
-      "name": "index-4-clients",
+      "name": "index-images-4",
       "operation": "bulk-index-images",
-      "clients": 4,
-      "time-period": {{ p_indexing_time }}
+      "clients": 4
     },
     {
-      "name": "index-8-clients",
+      "name": "index-images-8",
       "operation": "bulk-index-images",
-      "clients": 8,
-      "time-period": {{ p_indexing_time }}
+      "clients": 8
     },
-
+    {
+      "name": "index-images-16",
+      "operation": "bulk-index-images",
+      "clients": 16
+    },
+    {
+      "name": "index-images-32",
+      "operation": "bulk-index-images",
+      "clients": 32
+    },
+    {
+      "name": "index-images-64",
+      "operation": "bulk-index-images",
+      "clients": 64
+    },
     {
       "operation": {
         "operation-type": "refresh",
