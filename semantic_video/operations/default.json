@@ -1,0 +1,8 @@
+{
+  "name": "bulk-index-videos",
+  "operation-type": "semantic-video-bulk-index",
+  "param-source": "semantic-video-index-param-source",
+  "index": "{{ index_name | default('semantic-video-test') }}",
+  "bulk_size": {{ bulk_size | default(1) }},
+  "request_timeout": {{ request_timeout | default(300) }}
+}

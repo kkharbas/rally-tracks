@@ -1,0 +1,14 @@
+{
+  "mappings": {
+    "dynamic": "strict",
+    "properties": {
+      "name": {
+        "type": "keyword"
+      },
+      "video": {
+        "type": "semantic",
+        "inference_id": "{{ inference_id | default('.jina-embeddings-v5-omni-small') }}"
+      }
+    }
+  }
+}

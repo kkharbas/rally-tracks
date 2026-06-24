@@ -1,0 +1,17 @@
+{% import "rally.helpers" as rally with context %}
+{
+  "version": 2,
+  "description": "Indexing load test for Elasticsearch semantic field type with video documents. Continuously indexes video files for a configurable duration and client count.",
+  "indices": [
+    {
+      "name": "{{ index_name | default('semantic-video-test') }}",
+      "body": "index.json"
+    }
+  ],
+  "operations": [
+    {{ rally.collect(parts="operations/*.json") }}
+  ],
+  "challenges": [
+    {{ rally.collect(parts="challenges/*.json") }}
+  ]
+}
