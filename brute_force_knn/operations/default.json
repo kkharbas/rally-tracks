@@ -1,0 +1,10 @@
+{
+  "name": "brute-force-dense-vector-knn",
+  "operation-type": "search",
+  "param-source": "brute-force-dense-vector-param-source"
+},
+{
+  "name": "brute-force-esql-knn",
+  "operation-type": "esql",
+  "param-source": "brute-force-esql-knn-param-source"
+}
