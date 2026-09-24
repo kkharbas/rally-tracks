@@ -65,33 +65,97 @@
       }
     },
     {
-      "name": "brute-force-esql-knn",
+      "name": "brute-force-esql-knn-10",
       "tags": ["search"],
-      "operation": "brute-force-esql-knn",
+      "operation": "brute-force-esql-knn-10",
       "warmup-iterations": {{ warmup_iterations | default(100) }},
       "iterations": {{ iterations | default(100) }},
       "clients": 1
     },
     {
-      "name": "brute-force-esql-knn-multi-client",
+      "name": "brute-force-esql-knn-10-multi-client",
       "tags": ["search"],
-      "operation": "brute-force-esql-knn",
+      "operation": "brute-force-esql-knn-10",
       "warmup-iterations": {{ warmup_iterations | default(100) }},
       "iterations": {{ iterations | default(100) }},
       "clients": {{ search_clients | default(8) | int }}
     },
     {
-      "name": "brute-force-dense-vector-knn",
+      "name": "brute-force-esql-knn-50",
       "tags": ["search"],
-      "operation": "brute-force-dense-vector-knn",
+      "operation": "brute-force-esql-knn-50",
       "warmup-iterations": {{ warmup_iterations | default(100) }},
       "iterations": {{ iterations | default(100) }},
       "clients": 1
     },
     {
-      "name": "brute-force-dense-vector-knn-multi-client",
+      "name": "brute-force-esql-knn-50-multi-client",
       "tags": ["search"],
-      "operation": "brute-force-dense-vector-knn",
+      "operation": "brute-force-esql-knn-50",
+      "warmup-iterations": {{ warmup_iterations | default(100) }},
+      "iterations": {{ iterations | default(100) }},
+      "clients": {{ search_clients | default(8) | int }}
+    },
+    {
+      "name": "brute-force-esql-knn-100",
+      "tags": ["search"],
+      "operation": "brute-force-esql-knn-100",
+      "warmup-iterations": {{ warmup_iterations | default(100) }},
+      "iterations": {{ iterations | default(100) }},
+      "clients": 1
+    },
+    {
+      "name": "brute-force-esql-knn-100-multi-client",
+      "tags": ["search"],
+      "operation": "brute-force-esql-knn-100",
+      "warmup-iterations": {{ warmup_iterations | default(100) }},
+      "iterations": {{ iterations | default(100) }},
+      "clients": {{ search_clients | default(8) | int }}
+    },
+    {
+      "name": "brute-force-dense-vector-knn-10",
+      "tags": ["search"],
+      "operation": "brute-force-dense-vector-knn-10",
+      "warmup-iterations": {{ warmup_iterations | default(100) }},
+      "iterations": {{ iterations | default(100) }},
+      "clients": 1
+    },
+    {
+      "name": "brute-force-dense-vector-knn-10-multi-client",
+      "tags": ["search"],
+      "operation": "brute-force-dense-vector-knn-10",
+      "warmup-iterations": {{ warmup_iterations | default(100) }},
+      "iterations": {{ iterations | default(100) }},
+      "clients": {{ search_clients | default(8) | int }}
+    },
+    {
+      "name": "brute-force-dense-vector-knn-50",
+      "tags": ["search"],
+      "operation": "brute-force-dense-vector-knn-50",
+      "warmup-iterations": {{ warmup_iterations | default(100) }},
+      "iterations": {{ iterations | default(100) }},
+      "clients": 1
+    },
+    {
+      "name": "brute-force-dense-vector-knn-50-multi-client",
+      "tags": ["search"],
+      "operation": "brute-force-dense-vector-knn-50",
+      "warmup-iterations": {{ warmup_iterations | default(100) }},
+      "iterations": {{ iterations | default(100) }},
+      "clients": {{ search_clients | default(8) | int }}
+    },
+    {
+      "name": "brute-force-dense-vector-knn-100",
+      "tags": ["search"],
+      "operation": "brute-force-dense-vector-knn-100",
+      "warmup-iterations": {{ warmup_iterations | default(100) }},
+      "iterations": {{ iterations | default(100) }},
+      "clients": 1
+    },
+    {
+      "name": "brute-force-dense-vector-knn-100-multi-client",
+      "tags": ["search"],
+      "operation": "brute-force-dense-vector-knn-100",
       "warmup-iterations": {{ warmup_iterations | default(100) }},
       "iterations": {{ iterations | default(100) }},
       "clients": {{ search_clients | default(8) | int }}

@@ -1,10 +1,36 @@
 {
-  "name": "brute-force-dense-vector-knn",
+  "name": "brute-force-dense-vector-knn-10",
   "operation-type": "search",
-  "param-source": "brute-force-dense-vector-param-source"
+  "param-source": "brute-force-dense-vector-param-source",
+  "k": 10
 },
 {
-  "name": "brute-force-esql-knn",
+  "name": "brute-force-dense-vector-knn-50",
+  "operation-type": "search",
+  "param-source": "brute-force-dense-vector-param-source",
+  "k": 50
+},
+{
+  "name": "brute-force-dense-vector-knn-100",
+  "operation-type": "search",
+  "param-source": "brute-force-dense-vector-param-source",
+  "k": 100
+},
+{
+  "name": "brute-force-esql-knn-10",
   "operation-type": "esql",
-  "param-source": "brute-force-esql-knn-param-source"
+  "param-source": "brute-force-esql-knn-param-source",
+  "k": 10
+},
+{
+  "name": "brute-force-esql-knn-50",
+  "operation-type": "esql",
+  "param-source": "brute-force-esql-knn-param-source",
+  "k": 50
+},
+{
+  "name": "brute-force-esql-knn-100",
+  "operation-type": "esql",
+  "param-source": "brute-force-esql-knn-param-source",
+  "k": 100
 }
