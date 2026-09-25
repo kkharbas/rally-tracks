@@ -109,6 +109,9 @@ class KnnValidationParamSource:
         self._queries = _load_queries()
         self.infinite = False
 
+    def partition(self, partition_index, total_partitions):
+        return self
+
     def params(self):
         num_queries = self._params.get("num-validation-queries", 5)
         k = self._params.get("k", 10)
