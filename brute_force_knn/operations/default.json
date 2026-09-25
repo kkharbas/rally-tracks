@@ -1,4 +1,18 @@
 {
+  "name": "validate-knn-consistency-10",
+  "operation-type": "knn-consistency-validate",
+  "param-source": "knn-validation-param-source",
+  "k": 10,
+  "num-validation-queries": {{ num_validation_queries | default(5) }}
+},
+{
+  "name": "validate-knn-consistency-100",
+  "operation-type": "knn-consistency-validate",
+  "param-source": "knn-validation-param-source",
+  "k": 100,
+  "num-validation-queries": {{ num_validation_queries | default(5) }}
+},
+{
   "name": "brute-force-dense-vector-knn-10",
   "operation-type": "search",
   "param-source": "brute-force-dense-vector-param-source",

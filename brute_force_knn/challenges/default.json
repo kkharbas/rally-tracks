@@ -65,6 +65,13 @@
       }
     },
     {
+      "name": "validate-knn-consistency-10",
+      "tags": ["validate"],
+      "operation": "validate-knn-consistency-10",
+      "iterations": 1,
+      "clients": 1
+    },
+    {
       "name": "brute-force-esql-knn-10",
       "tags": ["search"],
       "operation": "brute-force-esql-knn-10",
@@ -100,6 +107,13 @@
       "clients": {{ search_clients | default(8) | int }}
     },
     {%- endif %}
+    {
+      "name": "validate-knn-consistency-100",
+      "tags": ["validate"],
+      "operation": "validate-knn-consistency-100",
+      "iterations": 1,
+      "clients": 1
+    },
     {
       "name": "brute-force-esql-knn-100",
       "tags": ["search"],
